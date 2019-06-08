@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  atack: 1
+  hp: 1
+  mao: one
+
+two:
+  name: MyString
+  atack: 1
+  hp: 1
+  mao: two
