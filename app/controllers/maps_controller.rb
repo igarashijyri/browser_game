@@ -1,28 +1,26 @@
 class MapsController < ApplicationController
   before_action :set_map, only: [:show, :edit, :update, :destroy]
 
-  # GET /maps
-  # GET /maps.json
   def index
     @maps = Map.all
   end
 
-  # GET /maps/1
-  # GET /maps/1.json
   def show
+    @enemy = 100
   end
 
-  # GET /maps/new
   def new
     @map = Map.new
   end
 
-  # GET /maps/1/edit
   def edit
   end
 
-  # POST /maps
-  # POST /maps.json
+  def attack
+    binding.pry
+    render :show
+  end
+
   def create
     @map = Map.new(map_params)
 
@@ -37,8 +35,6 @@ class MapsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /maps/1
-  # PATCH/PUT /maps/1.json
   def update
     respond_to do |format|
       if @map.update(map_params)

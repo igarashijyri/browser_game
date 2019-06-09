@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= @map.name %></strong>
 </p>
+<%= form_tag({controller: :maps, action: :attack}) do %>
+  <%= label_tag :アクション %>
+  <%= text_field_tag :attack %>
+  <%= submit_tag :実行 %>
+<% end %>
 
 <%= link_to '帰る', maps_path %>
