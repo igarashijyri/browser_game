@@ -17,7 +17,6 @@ class MapsController < ApplicationController
   end
 
   def attack
-    binding.pry
     render :show
   end
 
