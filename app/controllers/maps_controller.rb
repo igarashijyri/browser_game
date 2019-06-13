@@ -6,6 +6,7 @@ class MapsController < ApplicationController
   end
 
   def show
+    session[:map_id] = params[:id]
     @enemy = 100
   end
 
