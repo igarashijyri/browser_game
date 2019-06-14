@@ -3,6 +3,7 @@ class MapsController < ApplicationController
 
   def index
     @maps = Map.all
+    reset_session
   end
 
   def show
