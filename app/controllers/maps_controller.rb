@@ -8,7 +8,10 @@ class MapsController < ApplicationController
 
   def show
     session[:map_id] = params[:id]
-    @enemy = 100
+    session[:enemy] = 100
+    #エネミーのHPをviewに返したいが、返した後にサーバーに帰ってこない。。
+    #POSTで送り返すこともできるが、ユーザ側から値の書き換えが可能となってしまう。。
+    #sessionも試したが、viewでsessionを受け取ってくれない。
   end
 
   def new
@@ -61,7 +64,8 @@ class MapsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_map
-      @map = Map.find(params[:id])
+      @map = Map.find_by(id: params[:id])
+      @map = session[:map_id] if @map.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
