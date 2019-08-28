@@ -9,9 +9,6 @@ class MapsController < ApplicationController
   def show
     session[:map_id] = params[:id]
     session[:enemy] = 100
-    #エネミーのHPをviewに返したいが、返した後にサーバーに帰ってこない。。
-    #POSTで送り返すこともできるが、ユーザ側から値の書き換えが可能となってしまう。。
-    #sessionも試したが、viewでsessionを受け取ってくれない。
   end
 
   def new
@@ -22,6 +19,10 @@ class MapsController < ApplicationController
   end
 
   def attack
+    unless params[:attack].to_i == 0
+      attack = params[:attack].to_i
+      session[:enemy] = session[:enemy] - attack
+    end
     render :show
   end
 
