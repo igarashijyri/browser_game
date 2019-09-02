@@ -8,7 +8,8 @@ class MapsController < ApplicationController
 
   def show
     session[:map_id] = params[:id]
-    session[:enemy] = 100
+    stage = session[:map_id]
+    session[:enemy] = set_enemy(stage)
   end
 
   def new
@@ -69,8 +70,9 @@ class MapsController < ApplicationController
       @map = session[:map_id] if @map.nil?
     end
 
-    def set_enemy(stage, map_id)
-      enemy = Enemey.where(id: stage, map_id: map_id)
+    def set_enemy(stage)
+      enemy = Enemey.where(id: stage)
+      enemy = enemy.try(:sample)
       return enemy
     end
 
