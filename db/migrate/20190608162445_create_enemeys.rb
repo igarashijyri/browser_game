@@ -4,7 +4,7 @@ class CreateEnemeys < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :atack
       t.integer :hp
-      t.references :mao, foreign_key: true
+      t.references :map, foreign_key: true
 
       t.timestamps
     end

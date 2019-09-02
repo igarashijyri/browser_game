@@ -1,3 +1,3 @@
 class Enemey < ApplicationRecord
-  belongs_to :mao
+  belongs_to :map
 end

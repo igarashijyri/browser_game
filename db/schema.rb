@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2019_06_08_162735) do
     t.string "name"
     t.integer "atack"
     t.integer "hp"
-    t.integer "mao_id"
+    t.integer "map_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["mao_id"], name: "index_enemeys_on_mao_id"
+    t.index ["map_id"], name: "index_enemeys_on_map_id"
   end
 
   create_table "maps", force: :cascade do |t|

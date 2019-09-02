@@ -69,6 +69,11 @@ class MapsController < ApplicationController
       @map = session[:map_id] if @map.nil?
     end
 
+    def set_enemy(stage, map_id)
+      enemy = Enemey.where(id: stage, map_id: map_id)
+      return enemy
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def map_params
       params.require(:map).permit(:name)
