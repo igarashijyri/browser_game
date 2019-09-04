@@ -9,7 +9,7 @@ class MapsController < ApplicationController
   def show
     session[:map_id] = params[:id]
     stage = session[:map_id]
-    session[:enemy] = set_enemy(stage)
+    session[:enemy] = Enemey.set_enemy(1).hp
   end
 
   def new
@@ -19,10 +19,10 @@ class MapsController < ApplicationController
   def edit
   end
 
-  def attack
-    unless params[:attack].to_i == 0
-      attack = params[:attack].to_i
-      session[:enemy] = session[:enemy] - attack
+  def player_attack
+    unless params[:player_attack].to_i == 0
+      player_attack = params[:player_attack].to_i
+      session[:enemy] = session[:enemy] - player_attack
     end
     render :show
   end
@@ -68,12 +68,6 @@ class MapsController < ApplicationController
     def set_map
       @map = Map.find_by(id: params[:id])
       @map = session[:map_id] if @map.nil?
-    end
-
-    def set_enemy(stage)
-      enemy = Enemey.where(id: stage)
-      enemy = enemy.try(:sample)
-      return enemy
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

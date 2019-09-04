@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
-<%= session[:map_id]  %>
+<%= session[:enemy]  %>
 <p>
 </p>
-<%= form_tag({action: :attack}) do %>
+<%= form_tag({action: :player_attack}) do %>
   <%= label_tag :アクション %>
-  <%= text_field_tag :attack %>
+  <%= text_field_tag :player_attack %>
   <%= submit_tag :実行 %>
 <% end %>
 
