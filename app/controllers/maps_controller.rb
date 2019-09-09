@@ -7,10 +7,10 @@ class MapsController < ApplicationController
   end
 
   def show
-    if session[:map_id].blank? && session[:enemy]
+    if session[:map_id].blank? && session[:enemy].blank?
       session[:map_id] = params[:id]
       stage = session[:map_id]
-      session[:enemy] = Enemey.set_enemy(1).hp
+      session[:enemy] = Enemey.set_enemy(stage).hp
     end
   end
 
