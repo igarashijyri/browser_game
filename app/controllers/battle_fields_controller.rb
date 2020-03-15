@@ -1,7 +1,6 @@
 class BattleFieldsController < ApplicationController
 
-  def battle
-    
+  def index    
   end
 
 end
