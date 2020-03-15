@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :maps
   resources :enemies
+  get 'maps/index'
   get 'maps/player_attack'
   post 'maps/player_attack'
   get 'dictionary/index'
