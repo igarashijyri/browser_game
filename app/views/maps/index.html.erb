@@ -7,7 +7,7 @@
     <% @maps.each do |map| %>
       <tr>
         <td><%= map.name %></td>
-        <td><%= link_to '移動する', battle_fileds_index_path, map_id: map.id %></td>
+        <td><%= link_to '移動する', battle_fields_index_path, map_id: map.id %></td>
       </tr>
     <% end %>
   </tbody>
