@@ -7,11 +7,8 @@ class MapsController < ApplicationController
   end
 
   def show
-    if session[:map_id].blank? && session[:enemy].blank?
-      session[:map_id] = params[:id]
-      stage = session[:map_id]
-      session[:enemy] = Enemey.set_enemy(stage).hp
-    end
+    session[:map_id] = params[:id]
+    battle_end if session[:enemy].blank?
   end
 
   def new
@@ -25,8 +22,14 @@ class MapsController < ApplicationController
     unless params[:player_attack].to_i == 0
       player_attack = params[:player_attack].to_i
       session[:enemy] = session[:enemy] - player_attack
+      battle_end if session[:enemy] <= 0
     end
     render :show
+  end
+
+  def battle_end
+    stage = session[:map_id]
+    session[:enemy] = Enemey.set_enemy(stage).hp
   end
 
   def create

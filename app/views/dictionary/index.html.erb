@@ -1,0 +1,4 @@
+<%= form_with( url: dictionary_search_path ) do %>
+  検索キーワード: <%= text_field_tag :key_word, '', size: 30 %>
+  <%= submit_tag '検索' %>
+<% end %>
