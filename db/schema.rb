@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_103530) do
+ActiveRecord::Schema.define(version: 2020_03_15_141416) do
+
+  create_table "battle_fields", force: :cascade do |t|
+    t.string "map_id"
+    t.string "string"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "dictionaries", force: :cascade do |t|
     t.string "name"
