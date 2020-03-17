@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_15_141416) do
+ActiveRecord::Schema.define(version: 2020_03_17_122051) do
 
   create_table "battle_fields", force: :cascade do |t|
     t.string "map_id"
     t.string "string"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.integer "hp"
+    t.integer "attack"
+    t.integer "action_point"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
   create_table "dictionaries", force: :cascade do |t|
